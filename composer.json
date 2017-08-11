@@ -1,15 +1,22 @@
 {
-    "name": "fact-finder/fact-finder-php-library",
-    "description": "FACT Finder PHP Library",
+    "name": "sportpursuit/fact-finder-php-library",
+    "description": "FACT Finder PHP Library (forked by SportPursuit)",
     "license": "GPL-3.0",
     "keywords": [
         "fact finder",
-        "fact finder php library"
+        "fact finder php library",
+        "sportpursuit"
     ],
-    "homepage": "https://github.com/FACT-Finder/FACT-Finder-PHP-Library",
+    "homepage": "https://github.com/SportPursuit/FACT-Finder-PHP-Library",
     "authors": [
         {
             "name": "Martin Büttner"
+        },
+        {
+            "name": "Alex Lepretre",
+            "email": "alex.lepretre@sportpursuit.co.uk",
+            "homepage": "https://www.sportpursuit.com",
+            "role": "Web Developer"
         }
     ],
     "require": {
@@ -20,7 +27,7 @@
             "FACTFinder\\": "src/"
         }
     },
-    "autoload-dev": {    
+    "autoload-dev": {
         "psr-4": {
             "FACTFinder\\Test\\": "tests/"
         }
