@@ -113,8 +113,20 @@ abstract class AbstractAdapter
             // stdClass objects don't really have any advantages over plain
             // arrays but miss out on some of the built-in array functions.
             $jsonData = json_decode($string, true);
-            if (is_null($jsonData))
+            if (is_null($jsonData)) {
+                $xmlData = simplexml_load_string($string);
+                if ($xmlData !== false) {
+                    if (!empty($xmlData->apiError->error)) {
+                        $errors = [];
+                        foreach ($xmlData->apiError->error as $error) {
+                            $errors[] = $error;
+                        }
+                        $string = implode('; ', $errors);
+                    }
+                }
+
                 throw new \InvalidArgumentException($string);
+            }
             if(is_array($jsonData) && isset($jsonData['error'])) {
                 $this->error = strip_tags($jsonData['error']);
                 $this->log->error("FACT-Finder returned error: " . $this->error);
