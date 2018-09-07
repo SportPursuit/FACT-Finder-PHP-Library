@@ -21,11 +21,11 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "ext-curl": "*",
-        "ext-json": "*",
-        "ext-iconv": "*",
-        "ext-libxml": "*",
-        "ext-simplexml": "*"
+//        "ext-curl": "*",
+//        "ext-json": "*",
+//        "ext-iconv": "*",
+//        "ext-libxml": "*",
+//        "ext-simplexml": "*"
     },
     "autoload": {
         "psr-0": {
