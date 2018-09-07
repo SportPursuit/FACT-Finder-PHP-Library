@@ -114,9 +114,7 @@ abstract class AbstractAdapter
             // arrays but miss out on some of the built-in array functions.
             $jsonData = json_decode($string, true);
             if (is_null($jsonData))
-                throw new \InvalidArgumentException(
-                    "json_decode() raised an error: ".json_last_error()
-                );
+                throw new \InvalidArgumentException($string);
             if(is_array($jsonData) && isset($jsonData['error'])) {
                 $this->error = strip_tags($jsonData['error']);
                 $this->log->error("FACT-Finder returned error: " . $this->error);
