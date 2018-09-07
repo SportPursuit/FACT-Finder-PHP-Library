@@ -66,11 +66,10 @@ class Parameters implements \ArrayAccess, \Countable
             $k = urldecode($pair[0]);
             $v = urldecode($pair[1]);
 
-            $explodedValues = explode(',', $v);
-            if (count($explodedValues) > 1) {
-                $v = $explodedValues;
-            }
-
+            // TODO: This does not currently pay attention to potential array
+            //       keys in the parameter name and simply appends the value
+            //       whenever it encounters an array parameter. Should this
+            //       functionality be added?
             if (preg_match('/^[^\]]*(?=\[[^\]]*\])/', $k, $matches))
                 $this->add($matches[0], $v);
             else
